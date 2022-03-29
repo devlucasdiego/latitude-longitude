@@ -21,8 +21,8 @@ public class Programa {
                     linha1 = bufferedReader1.readLine();
                 }
                 if (linha2 != null) {
-                    printWriter.println(linha1);
-                    linha2 = bufferedReader1.readLine();
+                    printWriter.println(linha2);
+                    linha2 = bufferedReader2.readLine();
                 }
             }
 
