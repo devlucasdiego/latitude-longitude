@@ -8,13 +8,8 @@ public class Programa {
     public static void main(String[] args) {
         String caminho = "D:\\tabelas\\pesquisa.txt";
 
-        // Ler stream de dados
-        FileReader fileReader = null;
-        BufferedReader bufferedReader = null;
-
-        try {
-            fileReader = new FileReader(caminho);
-            bufferedReader = new BufferedReader(fileReader);
+        // Bloco "try" instanciando recursos na mesma linha e desalocando de forma automática quando o bloco acabar.
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(caminho))) {
 
             String linha = bufferedReader.readLine(); // Ler o arquivo até a quebra de linha.
             while (linha != null) {
@@ -23,13 +18,6 @@ public class Programa {
             }
         } catch (IOException e) {
             System.out.println("Erro: " + e.getMessage());
-        } finally {
-            try {
-                bufferedReader.close();
-                fileReader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 }
